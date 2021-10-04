@@ -6,11 +6,7 @@ import {
   createMusicCVSFile,
   MusicListeningFetchOption as MLFO,
 } from "./utils/elements/music";
-import {
-  setStorageValue,
-  getStorageValues,
-  clearStorageValue,
-} from "./utils/storage";
+import { clearStorageValue, getStorageValue } from "./utils/storage";
 
 import { EventSupporter, SupportEvent } from "./types";
 
@@ -78,14 +74,6 @@ const supporters: EventSupporter[] = [
     );
   }),
 
-  createSupporter("background-play-start", () => {
-    return setStorageValue("isBackgroundPlay", true);
-  }),
-
-  createSupporter("background-play-stop", () => {
-    return setStorageValue("isBackgroundPlay", false);
-  }),
-
   new FetchListenerClass(MLFO.id, MLFO.url, MLFO.update),
 ];
 
@@ -106,14 +94,10 @@ try {
   );
 
   // 既に監視済みなら監視を開始する
-  getStorageValues(["isListening", "isBackgroundPlay"]).then((result) => {
-    if (result.isListening) {
-      supporters.forEach((v) => v.try("start-listening"));
-    }
+  getStorageValue("isListening", false).then((result) => {
+    if (!result.isListening) return;
 
-    if (result.isBackgroundPlay) {
-      supporters.forEach((v) => v.try("background-play-start"));
-    }
+    supporters.forEach((v) => v.try("start-listening"));
   });
 
   console.log(`::: KCLP version ${version} ::: セットアップが完了しました`);

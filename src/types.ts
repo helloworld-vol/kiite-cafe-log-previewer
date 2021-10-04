@@ -36,7 +36,6 @@ export interface Music {
 export interface KCLPStorageType {
   musics: Music[];
   isListening: boolean;
-  isBackgroundPlay: boolean;
 }
 
 /**
@@ -48,9 +47,7 @@ export type SupportEvent =
   | "start-listening"
   | "stop-listening"
   | "send-report"
-  | "create-csv"
-  | "background-play-stop"
-  | "background-play-start";
+  | "create-csv";
 
 /**
  * @description 対応するイベントの処理をするinterface
