@@ -71,15 +71,19 @@ const supporters: EventSupporter[] = [
 
   // 製作者のTwitterプロフィール画面を別タブで表示する
   createSupporter("send-report", async () => {
-    return !!window.open("https://twitter.com/helloworld_vol", "_blank", "noopener");
+    return !!window.open(
+      "https://twitter.com/helloworld_vol",
+      "_blank",
+      "noopener"
+    );
   }),
 
-  createSupporter("background-play-start", async () => {
-    return await setStorageValue("isBackgroundPlay", true);
+  createSupporter("background-play-start", () => {
+    return setStorageValue("isBackgroundPlay", true);
   }),
 
-  createSupporter("background-play-stop", async () => {
-    return await setStorageValue("isBackgroundPlay", false);
+  createSupporter("background-play-stop", () => {
+    return setStorageValue("isBackgroundPlay", false);
   }),
 
   new FetchListenerClass(MLFO.id, MLFO.url, MLFO.update),

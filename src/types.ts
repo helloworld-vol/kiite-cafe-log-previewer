@@ -8,17 +8,17 @@
  * @description 再生された曲のデータ型
  */
 export interface Music {
-  played_label: string; 
-  played_at: number; 
+  played_label: string;
+  played_at: number;
   creator_id: number;
-  creator_link: string; 
-  creator_name: string; 
-  creator_unique: string; 
+  creator_link: string;
+  creator_name: string;
+  creator_unique: string;
   fav_count: number;
-  is_faved: boolean; 
+  is_faved: boolean;
   song_id: number;
-  song_link: string; 
-  song_title: string; 
+  song_link: string;
+  song_title: string;
   song_unique: string;
   thumbnail: string;
   video_id: string;
@@ -107,15 +107,15 @@ export interface NicoPlayOptions {
   width?: string;
   height?: string;
   noRelatedVideo: boolean;
-  autoplay: boolean; 
+  autoplay: boolean;
   mute: boolean;
   defaultNoComment: boolean;
   noLinkToNiconico: boolean;
-  noController: boolean; 
+  noController: boolean;
   noHeader: boolean;
-  noTags: boolean; 
-  noShare: boolean; 
-  noVideoDetail: boolean; 
+  noTags: boolean;
+  noShare: boolean;
+  noVideoDetail: boolean;
   allowProgrammaticFullScreen: boolean;
   onError?: (error: any) => void;
   onSuccess?: (result: NicoPlayer) => void;
@@ -125,11 +125,11 @@ export interface NicoPlayOptions {
  * @description よくわからん
  */
 export interface NicoConnector {
-  playerId: string; 
-  targetDomain: string; 
+  playerId: string;
+  targetDomain: string;
   iframeElement: HTMLIFrameElement;
-  connectorType: number; 
-  targetConnectorType: number; 
+  connectorType: number;
+  targetConnectorType: number;
   messageEventFunction: (value: any) => void;
 }
 
@@ -137,38 +137,38 @@ export interface NicoConnector {
  * @description 動画の情報
  */
 export interface VideoInfo {
-  commentCount: number; 
-  description: string; 
-  lengthInSeconds: number; 
-  mylistCount: number; 
-  postedAt: Date; 
-  thumbnailUrl: string; 
-  title: string; 
-  videoId: string; 
+  commentCount: number;
+  description: string;
+  lengthInSeconds: number;
+  mylistCount: number;
+  postedAt: Date;
+  thumbnailUrl: string;
+  title: string;
+  videoId: string;
   viewCount: number;
-  watchId: string; 
+  watchId: string;
 }
 
 /**
  * @description Niconicoのプレイヤーオブジェクト
  */
 export interface NicoPlayer {
-  EMBED_PLAYER_BASE_PATH: string; 
-  EMBED_PLAYER_URL: string; 
+  EMBED_PLAYER_BASE_PATH: string;
+  EMBED_PLAYER_URL: string;
   EMBED_PLAYER_DOMAIN: string;
   adjustProtocol: (value: any) => void;
   connector: NicoConnector;
   iframeElement: HTMLIFrameElement;
   initialSize: {
     width: string;
-    height: string; 
+    height: string;
   };
   parentElement: Element;
   playOptions: NicoPlayOptions;
 
-  playerId: string; 
-  url: string; 
-  watchId: string; 
+  playerId: string;
+  url: string;
+  watchId: string;
 
   addEventListener: (
     type: "playerStatusChange" | "playerMetadataChange",

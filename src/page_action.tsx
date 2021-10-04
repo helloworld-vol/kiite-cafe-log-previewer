@@ -24,7 +24,6 @@ const onClick = async (
   if (tab && tab.id) {
     const res = await browser.tabs.sendMessage(tab.id, { type }).catch((e) => {
       console.error(e); // Error内容を表示
-
       return null;
     });
 
