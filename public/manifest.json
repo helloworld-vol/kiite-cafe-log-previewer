@@ -1,0 +1,46 @@
+{
+  "manifest_version": 2,
+  "version": "1.1.1",
+  "name": "Kiite Cafe Log Previewer",
+  "short_name": "KCLP",
+  "description": "Kiite Cafeで流れた曲を記録し、表示します。",
+  "author": "NANZONI",
+  "icons": {
+    "16": "./images/icon16.png",
+    "48": "./images/icon48.png",
+    "128": "./images/icon128.png"
+  },
+  "permissions": [
+    "*://*.nicovideo.jp/*",
+    "activeTab",
+    "storage",
+    "webRequest",
+    "webRequestBlocking",
+    "declarativeContent"
+  ],
+  "page_action": {
+    "default_icon": {
+      "48": "./images/icon48.png"
+    },
+    "default_title": "Kiite Cafe Log Previewer",
+    "default_popup": "index.html"
+  },
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": true
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://cafe.kiite.jp/*"
+      ],
+      "js": [
+        "contents.js"
+      ],
+      "run_at": "document_start"
+    }
+  ],
+  "content_security_policy": "script-src 'self' https://embed.nicovideo.jp; object-src 'self';"
+}
