@@ -4,7 +4,7 @@
   "name": "Kiite Cafe Log Previewer",
   "short_name": "KCLP",
   "description": "Kiite Cafeで流れた曲を記録し、表示します。",
-  "author": "NANZONI",
+  "author": "helloworld",
   "icons": {
     "16": "./images/icon16.png",
     "48": "./images/icon48.png",
