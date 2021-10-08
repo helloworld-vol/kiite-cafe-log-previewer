@@ -37,6 +37,10 @@ const onClick = async (
  * @description 全体に適用するCSSを定義
  */
 const GlobalStyles = createGlobalStyle`
+  html,
+  body {
+    display: inline-block;
+  }
   * {
     margin: 0;
     padding: 0;
