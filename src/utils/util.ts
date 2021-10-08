@@ -77,9 +77,12 @@ export const createSupporter = (
   event: SupportEvent | "*",
   cb: () => Promise<boolean>
 ): EventSupporter => ({
-  try: async (type) => {
+  try: async (type): Promise<boolean> => {
     if (type === event || event === "*") {
-      return await cb();
+      return cb().catch((error) => {
+        console.error(error);
+        return false;
+      });
     }
 
     return false;
