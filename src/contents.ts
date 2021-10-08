@@ -83,7 +83,12 @@ try {
       if (!request || !request.type) return false;
 
       const type: SupportEvent = request.type;
-      const results = await Promise.all(supporters.map((s) => s.try(type)));
+      const results = await Promise.all(
+        supporters.map((s) => s.try(type))
+      ).catch((error) => {
+        console.error(error);
+        return [];
+      });
 
       if (results.includes(true)) return true;
 
