@@ -75,14 +75,14 @@ export class FetchListenerClass implements EventSupporter {
         };
       })();
     `,
-      (doc) => {
+      () => {
         const dom = document.createElement("div");
 
         dom.id = this.id;
         dom.style.height = "0";
         dom.style.overflow = "hidden";
 
-        doc.body.appendChild(dom);
+        document.body.appendChild(dom);
         this.observer.observe(dom, { childList: true });
       }
     );
@@ -127,11 +127,11 @@ export class FetchListenerClass implements EventSupporter {
 
     this.observer.disconnect();
 
-    this.injectScript.remove((doc) => {
-      const dataDOM = doc.getElementById(this.id);
+    this.injectScript.remove(() => {
+      const dataDOM = document.getElementById(this.id);
 
       if (dataDOM) {
-        doc.removeChild(dataDOM);
+        document.body.removeChild(dataDOM);
       }
 
       console.info("::: KCLP ::: Stop Listening");

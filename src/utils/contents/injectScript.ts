@@ -10,7 +10,7 @@ export class InjectScriptClass {
   /**
    *  @description 渡されたコードを実行するScriptタグを注入する
    */
-  inject(code: string, onComplete?: (document: Document) => void) {
+  inject(code: string, onComplete?: () => void) {
     if (this.injectedScript) return;
 
     if (!document.head || !document.body) {
@@ -26,13 +26,13 @@ export class InjectScriptClass {
     this.injectedScript = script;
     document.head.appendChild(script);
 
-    if (onComplete) onComplete(document);
+    if (onComplete) onComplete();
   }
 
   /**
    * @description 注入されたScriptを削除
    */
-  remove(onComplete?: (document: Document) => void) {
+  remove(onComplete?: () => void) {
     if (!document.head || !document.body) {
       return requestIdleCallback(() => this.remove(onComplete));
     }
@@ -43,6 +43,6 @@ export class InjectScriptClass {
 
     this.injectedScript = void 0;
 
-    onComplete(document);
+    onComplete();
   }
 }
