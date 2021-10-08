@@ -7,7 +7,7 @@
     "cz": "git-cz",
     "versionup": "node scripts/manifest_version_up.js",
     "build": "cross-env NODE_ENV=production webpack",
-    "dev": "cross-env NODE_ENV=devlopment webpack"
+    "dev": "cross-env NODE_ENV=development webpack"
   },
   "devDependencies": {
     "@types/chrome": "^0.0.114",

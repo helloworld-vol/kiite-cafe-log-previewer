@@ -1,22 +1,26 @@
 const path = require("path");
-const CopyPlugin = require('copy-webpack-plugin');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
+const HtmlWebPackPlugin = require("html-webpack-plugin");
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 const isDev = process.env.NODE_ENV === "development";
 
+/**
+ * @type {import('webpack').Configuration}
+ */
 module.exports = {
-
   mode: isDev ? "development" : "production",
 
+  devtool: isDev ? "inline-source-map" : false,
+
   entry: {
-    page_action: './src/page_action.tsx',
+    page_action: "./src/page_action.tsx",
     background: "./src/background.ts",
-    contents: "./src/contents.ts"
+    contents: "./src/contents.ts",
   },
 
   output: {
-    path: path.resolve(__dirname, 'dist')
+    path: path.resolve(__dirname, "dist"),
   },
 
   resolve: {
@@ -27,14 +31,14 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        use: 'ts-loader',
+        use: "ts-loader",
       },
 
       {
         test: /\.html$/,
         use: [
           {
-            loader: 'html-loader',
+            loader: "html-loader",
             options: { minimize: true },
           },
         ],
@@ -46,18 +50,17 @@ module.exports = {
     new CleanWebpackPlugin(),
 
     new HtmlWebPackPlugin({
-      template: './public/index.html',
-      filename: './index.html',
-      chunks: ['page_action'],
+      cache: false,
+      template: "./public/index.html",
+      filename: "./index.html",
+      chunks: ["page_action"],
     }),
 
     new CopyPlugin({
       patterns: [
         { from: "./public/icons", to: "images" },
-        { from: './public/manifest.json', to: 'manifest.json' },
-      ]
+        { from: "./public/manifest.json", to: "manifest.json" },
+      ],
     }),
-
   ],
-
 };
