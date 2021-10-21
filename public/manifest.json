@@ -1,6 +1,6 @@
 {
   "manifest_version": 2,
-  "version": "1.1.1",
+  "version": "1.2.0",
   "name": "Kiite Cafe Log Previewer",
   "short_name": "KCLP",
   "description": "Kiite Cafeで流れた曲を記録し、表示します。",
@@ -26,13 +26,19 @@
     "default_popup": "index.html"
   },
   "background": {
-    "scripts": ["background.js"],
+    "scripts": [
+      "background.js"
+    ],
     "persistent": true
   },
   "content_scripts": [
     {
-      "matches": ["*://cafe.kiite.jp/*"],
-      "js": ["contents.js"],
+      "matches": [
+        "*://cafe.kiite.jp/*"
+      ],
+      "js": [
+        "contents.js"
+      ],
       "run_at": "document_start"
     }
   ],
