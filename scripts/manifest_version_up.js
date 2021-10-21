@@ -34,7 +34,7 @@ const main = async () => {
 
   await writeFile(manifestJSONPath, JSON.stringify(manifestJSON, null, 2));
 
-  const vesionupComment = `manifest.json version up to v${manifestJSON.version}`;
+  const vesionupComment = `chore: 🤖 manifest.json version up to v${manifestJSON.version}`;
 
   console.log(`\n\u001b[32m🎉 ${vesionupComment} 🎉\u001b[0m\n`);
 
