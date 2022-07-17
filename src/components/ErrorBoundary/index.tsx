@@ -15,7 +15,7 @@ const Message = styled.p`
 `;
 
 /**
- * @description 子コンポーネントのエラーをキャッチし、エラーメッセージを表示するコンポーネント
+ * 子コンポーネントのエラーをキャッチし、エラーメッセージを表示するコンポーネント
  */
 export class ErrorBoundary extends React.Component<{ message?: string }> {
   state = {

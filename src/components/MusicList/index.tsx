@@ -15,7 +15,7 @@ interface MusicListProps {
 }
 
 /**
- * @description KiiteCafeで再生された曲一覧を表示するコンポーネント
+ * KiiteCafeで再生された曲一覧を表示するコンポーネント
  */
 export const MusicList: React.FC<MusicListProps> = ({ onClose }) => {
   const { musics, isEmpty } = useMusicList();

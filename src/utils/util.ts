@@ -7,7 +7,7 @@
 import { EventSupporter, SupportEvent } from "../types";
 
 /**
- * @description CSVのデータ型
+ * CSVのデータ型
  */
 interface CSVData {
   labels: string[];
@@ -15,7 +15,7 @@ interface CSVData {
 }
 
 /**
- * @description 渡されたデータからCSVファイルを作成する
+ * 渡されたデータからCSVファイルを作成する
  */
 export const createCSVFile = (data: CSVData): File => {
   const csvData = [data.labels, ...data.items]
@@ -33,7 +33,7 @@ export const createCSVFile = (data: CSVData): File => {
 };
 
 /**
- * @description 表示する日付の文字列を返す
+ * 表示する日付の文字列を返す
  */
 export const formatDate = (date: Date | string): string => {
   if (typeof date === "string") {
@@ -59,7 +59,7 @@ export const formatDate = (date: Date | string): string => {
 };
 
 /**
- * @description 実行した時の時間を返す
+ * 実行した時の時間を返す
  */
 export const getNow = (): { format: string; unix: number } => {
   const now = new Date();
@@ -71,7 +71,7 @@ export const getNow = (): { format: string; unix: number } => {
 };
 
 /**
- * @description 簡易的なSupporterを作成する
+ * 簡易的なSupporterを作成する
  */
 export const createSupporter = (
   event: SupportEvent | "*",

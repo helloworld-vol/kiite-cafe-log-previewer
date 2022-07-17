@@ -5,7 +5,7 @@
  */
 
 /**
- * @description 再生された曲のデータ型
+ * 再生された曲のデータ型
  */
 export interface Music {
   played_label: string;
@@ -31,7 +31,7 @@ export interface Music {
  */
 
 /**
- * @description Storageに保存するデータ型
+ * Storageに保存するデータ型
  */
 export interface KCLPStorageType {
   musics: Music[];
@@ -39,7 +39,7 @@ export interface KCLPStorageType {
 }
 
 /**
- * @description IconButtonに対応する文字列
+ * IconButtonに対応する文字列
  */
 export type SupportEvent =
   | "show-musics"
@@ -50,14 +50,14 @@ export type SupportEvent =
   | "create-csv";
 
 /**
- * @description 対応するイベントの処理をするinterface
+ * 対応するイベントの処理をするinterface
  */
 export interface EventSupporter {
   try(event: SupportEvent): Promise<boolean>;
 }
 
 /**
- * @description Fetchを監視するときに必要な情報
+ * Fetchを監視するときに必要な情報
  */
 export interface ListeningFetchOption {
   id: string;
@@ -72,7 +72,7 @@ export interface ListeningFetchOption {
  */
 
 /**
- * @description Playerの状態
+ * Playerの状態
  */
 type NicoPlayerStatus =
   | "unplayed"
@@ -82,12 +82,12 @@ type NicoPlayerStatus =
   | "finished";
 
 /**
- * @description シークバーの状態
+ * シークバーの状態
  */
 type NicoSeekStatus = "none" | "seeking" | "seekEnd";
 
 /**
- * @description NicoPlayerを作成する関数
+ * NicoPlayerを作成する関数
  */
 export type NicoPlayerFactory = {
   create: (
@@ -98,7 +98,7 @@ export type NicoPlayerFactory = {
 };
 
 /**
- * @description NiconicoPlayerのオプション
+ * NiconicoPlayerのオプション
  */
 export interface NicoPlayOptions {
   width?: string;
@@ -119,7 +119,7 @@ export interface NicoPlayOptions {
 }
 
 /**
- * @description よくわからん
+ * よくわからん
  */
 export interface NicoConnector {
   playerId: string;
@@ -131,7 +131,7 @@ export interface NicoConnector {
 }
 
 /**
- * @description 動画の情報
+ * 動画の情報
  */
 export interface VideoInfo {
   commentCount: number;
@@ -147,7 +147,7 @@ export interface VideoInfo {
 }
 
 /**
- * @description Niconicoのプレイヤーオブジェクト
+ * Niconicoのプレイヤーオブジェクト
  */
 export interface NicoPlayer {
   EMBED_PLAYER_BASE_PATH: string;

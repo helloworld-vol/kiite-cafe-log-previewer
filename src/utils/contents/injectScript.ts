@@ -2,13 +2,13 @@ const requestIdleCallback =
   (window as any).requestIdleCallback || requestAnimationFrame;
 
 /**
- * @description 渡されたコードを注入するScriptタグなどを管理するClass
+ * 渡されたコードを注入するScriptタグなどを管理するClass
  */
 export class InjectScriptClass {
   private injectedScript?: HTMLScriptElement;
 
   /**
-   *  @description 渡されたコードを実行するScriptタグを注入する
+   *  渡されたコードを実行するScriptタグを注入する
    */
   inject(code: string, onComplete?: () => void) {
     if (this.injectedScript) return;
@@ -30,7 +30,7 @@ export class InjectScriptClass {
   }
 
   /**
-   * @description 注入されたScriptを削除
+   * 注入されたScriptを削除
    */
   remove(onComplete?: () => void) {
     if (!document.head || !document.body) {

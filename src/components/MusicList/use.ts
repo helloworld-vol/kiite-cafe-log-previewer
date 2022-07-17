@@ -4,7 +4,7 @@ import { getMusics, watchMusicData } from "../../utils/elements/music";
 import { Music } from "../../types";
 
 /**
- * @description Kiite Cafeで再生された曲一覧を表示するための情報などを提供するHooks
+ * Kiite Cafeで再生された曲一覧を表示するための情報などを提供するHooks
  */
 export const useMusicList = () => {
   const [musics, setMusics] = useState<Music[]>([]);

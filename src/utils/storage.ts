@@ -4,7 +4,7 @@ import { KCLPStorageType } from "../types";
 type StorageKeys = keyof KCLPStorageType;
 
 /**
- * @description LocalStorageに保存している値を返す
+ * LocalStorageに保存している値を返す
  */
 export const getStorageValue = <K extends StorageKeys>(
   key: K,
@@ -20,7 +20,7 @@ export const getStorageValue = <K extends StorageKeys>(
 };
 
 /**
- * @description 複数の値をLocalStorageから取得する
+ * 複数の値をLocalStorageから取得する
  */
 export const getStorageValues = <K extends StorageKeys[]>(
   keys: K
@@ -31,7 +31,7 @@ export const getStorageValues = <K extends StorageKeys[]>(
 };
 
 /**
- * @description LocalStorageに値を保存
+ * LocalStorageに値を保存
  */
 export const setStorageValue = <K extends StorageKeys>(
   key: K,
@@ -41,7 +41,7 @@ export const setStorageValue = <K extends StorageKeys>(
 };
 
 /**
- * @description LocalStorageの値を監視する
+ * LocalStorageの値を監視する
  */
 export const watchStorageValue = <K extends StorageKeys>(
   key: K,
@@ -67,7 +67,7 @@ export const watchStorageValue = <K extends StorageKeys>(
 };
 
 /**
- * @description LocalStorageの値を削除
+ * LocalStorageの値を削除
  */
 export const clearStorageValue = async () => {
   const keys: Array<keyof KCLPStorageType> = ["musics"];

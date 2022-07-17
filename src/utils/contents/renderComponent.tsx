@@ -5,7 +5,7 @@ import { App } from "../../components/App";
 import { SupportEvent } from "../../types";
 
 /**
- * @description 古いDOMを削除してからReact Componentnをレンダリングする
+ * 古いDOMを削除してからReact Componentnをレンダリングする
  */
 export const renderComponent = (type: SupportEvent) => {
   try {
@@ -28,7 +28,7 @@ export const renderComponent = (type: SupportEvent) => {
   document.body.appendChild(root); // KCPLを表示するためのDOMを追加
 
   /**
-   * @description ✖ボタンが押された時の処理
+   * ✖ボタンが押された時の処理
    */
   const onClose = () => {
     const commentForm = document.getElementById("comment_form"); // kiite cafeのコメント入力欄

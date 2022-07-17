@@ -26,7 +26,7 @@ interface PopupProps {
 }
 
 /**
- * @description page_actionで表示するポップアップ
+ * page_actionで表示するポップアップ
  */
 export const Popup: React.FC<PopupProps> = ({ onClick }) => {
   const closePopup = () => window.close(); // ポップアップを閉じる

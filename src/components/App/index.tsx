@@ -11,7 +11,7 @@ interface AppProps {
 }
 
 /**
- * @description 画面に表示するRoot Component
+ * 画面に表示するRoot Component
  */
 export const App: React.FC<AppProps> = ({ type, onClose }) => {
   return (

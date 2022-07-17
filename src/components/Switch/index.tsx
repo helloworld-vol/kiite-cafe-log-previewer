@@ -11,7 +11,7 @@ interface SwitchProps {
 }
 
 /**
- * @description Propsによって表示内容を切り替えるコンポーネント
+ * Propsによって表示内容を切り替えるコンポーネント
  */
 export const Switch: React.FC<SwitchProps> = ({ type, onClose }) => {
   switch (type) {

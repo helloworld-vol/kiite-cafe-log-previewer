@@ -9,7 +9,7 @@ import { ErrorBoundary } from "./components/ErrorBoundary";
 import { SupportEvent } from "./types";
 
 /**
- * @description Iconボタンを押したときの処理
+ * Iconボタンを押したときの処理
  */
 const onClick = async (
   type: SupportEvent,
@@ -34,7 +34,7 @@ const onClick = async (
 };
 
 /**
- * @description 全体に適用するCSSを定義
+ * 全体に適用するCSSを定義
  */
 const GlobalStyles = createGlobalStyle`
   html,
@@ -48,7 +48,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 /**
- * @description ポップアップを表示する
+ * ポップアップを表示する
  */
 render(
   <>

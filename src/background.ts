@@ -3,7 +3,7 @@
 import { browser } from "webextension-polyfill-ts";
 
 /**
- * @description chrome専用 PopupをKiite Cafeだけで開けるようにする
+ * chrome専用 PopupをKiite Cafeだけで開けるようにする
  */
 if (window.chrome) {
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
@@ -25,7 +25,7 @@ if (window.chrome) {
 }
 
 /**
- * @descriptoin ニコニコ動画の広告をブロックする
+ * ニコニコ動画の広告をブロックする
  */
 browser.webRequest.onBeforeRequest.addListener(
   () => {

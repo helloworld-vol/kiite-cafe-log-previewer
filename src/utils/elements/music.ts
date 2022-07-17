@@ -8,7 +8,7 @@ import { getNow, createCSVFile } from "../util";
 import { ListeningFetchOption, Music } from "../../types";
 
 /**
- * @description Musicデータに含まれるべき情報のkey一覧
+ * Musicデータに含まれるべき情報のkey一覧
  */
 export const requiredMusicKeys: Array<keyof Music> = [
   "played_at",
@@ -23,7 +23,7 @@ export const requiredMusicKeys: Array<keyof Music> = [
 ];
 
 /**
- * @description Musicデータか判定する
+ * Musicデータか判定する
  */
 export const isMusic = (value: any): value is Music => {
   if (!value) return false;
@@ -36,7 +36,7 @@ export const isMusic = (value: any): value is Music => {
 };
 
 /**
- * @description 再生された曲一覧データを返す
+ * 再生された曲一覧データを返す
  */
 export const getMusics = async (): Promise<Music[]> => {
   const data = await getStorageValue("musics", []);
@@ -45,14 +45,14 @@ export const getMusics = async (): Promise<Music[]> => {
 };
 
 /**
- * @description 再生された曲一覧データを保存する
+ * 再生された曲一覧データを保存する
  */
 export const setMusics = async (musics: Music[]) => {
   return setStorageValue("musics", musics);
 };
 
 /**
- * @description LocalStorageに保存されている再生された曲一覧データを監視する
+ * LocalStorageに保存されている再生された曲一覧データを監視する
  */
 export const watchMusicData = (
   onChanged: (musics: Music[]) => void
@@ -65,7 +65,7 @@ export const watchMusicData = (
 };
 
 /**
- * @description 渡されたデータの重複を消して、再生された順に並び替える
+ * 渡されたデータの重複を消して、再生された順に並び替える
  */
 export const filterMusicList = (musics: Music[]): Music[] => {
   const list = musics
@@ -109,7 +109,7 @@ export const createMusicCVSFile = async () => {
 };
 
 /**
- * @description fetchしてきたデータを受け取って、Storeに反映する
+ * fetchしてきたデータを受け取って、Storeに反映する
  */
 export const updateMusic = async (dataList: any[]) => {
   const newMusics = dataList.flatMap<Music>((data) => {
@@ -130,7 +130,7 @@ export const updateMusic = async (dataList: any[]) => {
 };
 
 /**
- * @description Music関連のFetchを監視するときに必要な情報
+ * Music関連のFetchを監視するときに必要な情報
  */
 export const MusicListeningFetchOption: ListeningFetchOption = {
   id: "__KCLP_PLAY_MUSIC_DATA__",

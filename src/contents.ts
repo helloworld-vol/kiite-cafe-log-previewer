@@ -14,7 +14,7 @@ const manifest = browser.runtime.getManifest(); // manifest.jsonの内容を取�
 const version = manifest.version; // バージョン番号 example: "1.0.0"
 
 /**
- * @description 表示されているDOMを削除
+ * 表示されているDOMを削除
  */
 const clearDisplay = () => {
   const root = document.getElementById("kclp-root");
@@ -25,7 +25,7 @@ const clearDisplay = () => {
 };
 
 /**
- * @description Kiite Cafeの通信を監視するための設定を作成
+ * Kiite Cafeの通信を監視するための設定を作成
  */
 const supporters: EventSupporter[] = [
   // 再生された曲一覧を表示する

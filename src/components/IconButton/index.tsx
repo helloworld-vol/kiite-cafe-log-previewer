@@ -23,7 +23,7 @@ interface IconButtonProps {
 }
 
 /**
- * @description Popupで使用するIconボタンコンポーネント
+ * Popupで使用するIconボタンコンポーネント
  */
 export const IconButton: React.FC<IconButtonProps> = ({
   icon,

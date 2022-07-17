@@ -1,7 +1,7 @@
 import styled, { createGlobalStyle } from "styled-components";
 
 /**
- * @description styled componentsでCSSを定義
+ * styled componentsでCSSを定義
  */
 
 export const KCLPApp = styled.div`

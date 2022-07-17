@@ -3,7 +3,7 @@ import { InjectScriptClass } from "./injectScript";
 import { SupportEvent, EventSupporter } from "../../types";
 
 /**
- * @description 通信を監視するためのクラス
+ * 通信を監視するためのクラス
  */
 export class FetchListenerClass implements EventSupporter {
   private injectScript = new InjectScriptClass();
@@ -23,7 +23,7 @@ export class FetchListenerClass implements EventSupporter {
   }
 
   /**
-   * @description DOMの変更を受け取る
+   * DOMの変更を受け取る
    */
   private onChange(records: MutationRecord[]) {
     records.forEach((record) => {
@@ -45,7 +45,7 @@ export class FetchListenerClass implements EventSupporter {
   }
 
   /**
-   * @description 通信を監視するためのScriptタグを追加
+   * 通信を監視するためのScriptタグを追加
    */
   private interceptData() {
     this.injectScript.inject(
@@ -89,7 +89,7 @@ export class FetchListenerClass implements EventSupporter {
   }
 
   /**
-   * @description 対応した関数を実行する
+   * 対応した関数を実行する
    */
   async try(event: SupportEvent) {
     switch (event) {
@@ -109,7 +109,7 @@ export class FetchListenerClass implements EventSupporter {
   }
 
   /**
-   * @description 通信の監視を開始する
+   * 通信の監視を開始する
    */
   async start() {
     await setStorageValue("isListening", true);
@@ -120,7 +120,7 @@ export class FetchListenerClass implements EventSupporter {
   }
 
   /**
-   * @description 通信の監視を停止する
+   * 通信の監視を停止する
    */
   async stop() {
     await setStorageValue("isListening", false);
