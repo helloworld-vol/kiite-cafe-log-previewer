@@ -5,7 +5,7 @@ import { browser } from "webextension-polyfill-ts";
 /**
  * chrome専用 PopupをKiite Cafeだけで開けるようにする
  */
-if (window.chrome) {
+if (typeof chrome === "object" && !!chrome) {
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {
     chrome.declarativeContent.onPageChanged.addRules([
       {
@@ -24,15 +24,17 @@ if (window.chrome) {
   });
 }
 
+// 広告ブロックは実装方法が変わったので後で実装する
+
 /**
  * ニコニコ動画の広告をブロックする
  */
-browser.webRequest.onBeforeRequest.addListener(
-  () => {
-    return { cancel: true };
-  },
-  {
-    urls: ["*://ads.nicovideo.jp/*"],
-  },
-  ["blocking"]
-);
+// browser.webRequest.onBeforeRequest.addListener(
+//   () => {
+//     return { cancel: true };
+//   },
+//   {
+//     urls: ["*://ads.nicovideo.jp/*"],
+//   },
+//   ["blocking"]
+// );

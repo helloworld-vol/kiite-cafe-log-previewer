@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "version": "1.2.0",
   "name": "Kiite Cafe Log Previewer",
   "short_name": "KCLP",
@@ -10,15 +10,15 @@
     "48": "./images/icon48.png",
     "128": "./images/icon128.png"
   },
+  "optional_host_permissions": ["*://*.nicovideo.jp/*"],
   "permissions": [
-    "*://*.nicovideo.jp/*",
     "activeTab",
     "storage",
     "webRequest",
-    "webRequestBlocking",
-    "declarativeContent"
+    "declarativeContent",
+    "declarativeNetRequest"
   ],
-  "page_action": {
+  "action": {
     "default_icon": {
       "48": "./images/icon48.png"
     },
@@ -26,21 +26,13 @@
     "default_popup": "index.html"
   },
   "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "persistent": true
+    "service_worker": "background.js"
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://cafe.kiite.jp/*"
-      ],
-      "js": [
-        "contents.js"
-      ],
+      "matches": ["*://cafe.kiite.jp/*"],
+      "js": ["contents.js"],
       "run_at": "document_start"
     }
-  ],
-  "content_security_policy": "script-src 'self'; object-src 'self';"
+  ]
 }
