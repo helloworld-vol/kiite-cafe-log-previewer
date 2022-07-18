@@ -1,11 +1,12 @@
 import * as React from "react";
-import { render } from "react-dom";
-import { createGlobalStyle } from "styled-components";
+import { createRoot } from "react-dom/client";
 import { browser } from "webextension-polyfill-ts";
 
 import { ErrorBoundary } from "./components/ErrorBoundary";
 import { Popup } from "./components/Popup";
 import { SupportEvent } from "./types";
+
+import "./styles/index.scss";
 
 /**
  * Iconボタンを押したときの処理
@@ -32,30 +33,16 @@ const onClick = async (
   }
 };
 
-/**
- * 全体に適用するCSSを定義
- */
-const GlobalStyles = createGlobalStyle`
-  html,
-  body {
-    display: inline-block;
-  }
-  * {
-    margin: 0;
-    padding: 0;
-  }
-`;
+console.log("hoge v1");
+
+const container = document.getElementById("root") as HTMLElement;
+const root = createRoot(container);
 
 /**
  * ポップアップを表示する
  */
-render(
-  <>
-    <GlobalStyles />
-
-    <ErrorBoundary>
-      <Popup onClick={onClick} />
-    </ErrorBoundary>
-  </>,
-  document.getElementById("root")
+root.render(
+  <ErrorBoundary>
+    <Popup onClick={onClick} />
+  </ErrorBoundary>
 );

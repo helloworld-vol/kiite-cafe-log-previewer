@@ -10,6 +10,6 @@
     "lib": ["ESNext", "DOM"],
     "skipLibCheck": true
   },
-  "include": ["./src/**/*.tsx", "./src/**/*.ts"],
+  "include": ["index.d.ts", "./src/**/*.tsx", "./src/**/*.ts"],
   "exclude": ["node_modules"]
 }

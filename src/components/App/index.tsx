@@ -3,7 +3,7 @@ import * as React from "react";
 import { SupportEvent } from "../../types";
 import { Switch } from "../Switch";
 
-import { KCLPApp, GlobalStyles, KCLPBackground } from "./items";
+import styles from "./App.module.scss";
 
 interface AppProps {
   type: SupportEvent;
@@ -15,14 +15,10 @@ interface AppProps {
  */
 export const App: React.FC<AppProps> = ({ type, onClose }) => {
   return (
-    <>
-      <GlobalStyles />
-
-      <KCLPApp>
-        <KCLPBackground>
-          <Switch type={type} onClose={onClose} />
-        </KCLPBackground>
-      </KCLPApp>
-    </>
+    <div className={styles.container}>
+      <div className={styles.background}>
+        <Switch type={type} onClose={onClose} />
+      </div>
+    </div>
   );
 };

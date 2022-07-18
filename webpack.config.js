@@ -55,6 +55,7 @@ module.exports = {
             options: {
               loader: "tsx",
               target: "es2019",
+              minify: !isDev,
             },
           },
         ],

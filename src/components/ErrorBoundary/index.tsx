@@ -17,7 +17,10 @@ const Message = styled.p`
 /**
  * 子コンポーネントのエラーをキャッチし、エラーメッセージを表示するコンポーネント
  */
-export class ErrorBoundary extends React.Component<{ message?: string }> {
+export class ErrorBoundary extends React.Component<{
+  message?: string;
+  children?: React.ReactNode;
+}> {
   state = {
     hasError: false,
   };
@@ -26,7 +29,7 @@ export class ErrorBoundary extends React.Component<{ message?: string }> {
     return { hasError: true };
   }
 
-  componentDidCatch(error) {
+  componentDidCatch(error: Error) {
     console.log("エラーが発生しました", error);
   }
 
