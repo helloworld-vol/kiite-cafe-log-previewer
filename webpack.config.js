@@ -30,10 +30,35 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: "ts-loader",
+        test: /\.scss$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              url: false,
+              sourceMap: isDev,
+              importLoaders: 2,
+            },
+          },
+          {
+            loader: "sass-loader",
+            options: { sourceMap: isDev },
+          },
+        ],
       },
-
+      {
+        test: /\.tsx?$/,
+        use: [
+          {
+            loader: "esbuild-loader",
+            options: {
+              loader: "tsx",
+              target: "es2019",
+            },
+          },
+        ],
+      },
       {
         test: /\.html$/,
         use: [
