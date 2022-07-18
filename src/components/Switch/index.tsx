@@ -1,9 +1,8 @@
 import * as React from "react";
 
-import { MusicList } from "../MusicList";
-import { ErrorBoundary } from "../ErrorBoundary";
-
 import { SupportEvent } from "../../types";
+import { ErrorBoundary } from "../ErrorBoundary";
+import { MusicList } from "../MusicList";
 
 interface SwitchProps {
   type: SupportEvent;

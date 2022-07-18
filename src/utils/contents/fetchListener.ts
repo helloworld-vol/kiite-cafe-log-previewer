@@ -1,6 +1,7 @@
-import { setStorageValue } from "../storage";
-import { InjectScriptClass } from "./injectScript";
 import { SupportEvent, EventSupporter } from "../../types";
+import { setStorageValue } from "../storage";
+
+import { InjectScriptClass } from "./injectScript";
 
 /**
  * 通信を監視するためのクラス

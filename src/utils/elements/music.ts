@@ -1,11 +1,10 @@
+import { ListeningFetchOption, Music } from "../../types";
 import {
   getStorageValue,
   setStorageValue,
   watchStorageValue,
 } from "../storage";
 import { getNow, createCSVFile } from "../util";
-
-import { ListeningFetchOption, Music } from "../../types";
 
 /**
  * Musicデータに含まれるべき情報のkey一覧

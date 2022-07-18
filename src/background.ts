@@ -1,9 +1,5 @@
-/* eslint-disable no-undef */
-
-import { browser } from "webextension-polyfill-ts";
-
 /**
- * chrome専用 PopupをKiite Cafeだけで開けるようにする
+ * Chrome 専用 Popup を KiiteCafe だけで開けるようにする
  */
 if (typeof chrome === "object" && !!chrome) {
   chrome.declarativeContent.onPageChanged.removeRules(undefined, function () {

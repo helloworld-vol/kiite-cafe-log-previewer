@@ -1,9 +1,6 @@
-import * as React from "react";
-
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SizeProp, IconProp } from "@fortawesome/fontawesome-svg-core";
-
-import { useIconButton } from "./use";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as React from "react";
 
 import {
   RawButton,
@@ -11,6 +8,7 @@ import {
   IconButtonContainer,
   ButtonLabel,
 } from "./items";
+import { useIconButton } from "./use";
 
 interface IconButtonProps {
   icon: IconProp;

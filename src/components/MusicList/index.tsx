@@ -1,14 +1,13 @@
-import * as React from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLink, faHeart } from "@fortawesome/free-solid-svg-icons";
 import {
   faTimesCircle,
   faHeart as RegHeart,
 } from "@fortawesome/free-regular-svg-icons";
-
-import { useMusicList } from "./use";
+import { faLink, faHeart } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import * as React from "react";
 
 import * as Items from "./items";
+import { useMusicList } from "./use";
 
 interface MusicListProps {
   onClose: () => void;

@@ -1,14 +1,14 @@
 import { browser } from "webextension-polyfill-ts";
-import { createSupporter } from "./utils/util";
-import { renderComponent } from "./utils/contents/renderComponent";
+
+import { EventSupporter, SupportEvent } from "./types";
 import { FetchListenerClass } from "./utils/contents/fetchListener";
+import { renderComponent } from "./utils/contents/renderComponent";
 import {
   createMusicCVSFile,
   MusicListeningFetchOption as MLFO,
 } from "./utils/elements/music";
 import { clearStorageValue, getStorageValue } from "./utils/storage";
-
-import { EventSupporter, SupportEvent } from "./types";
+import { createSupporter } from "./utils/util";
 
 const manifest = browser.runtime.getManifest(); // manifest.jsonの内容を取得
 const version = manifest.version; // バージョン番号 example: "1.0.0"
@@ -78,25 +78,23 @@ const supporters: EventSupporter[] = [
 ];
 
 try {
-  browser.runtime.onMessage.addListener(
-    async (request): Promise<boolean> => {
-      if (!request || !request.type) return false;
+  browser.runtime.onMessage.addListener(async (request): Promise<boolean> => {
+    if (!request || !request.type) return false;
 
-      const type: SupportEvent = request.type;
-      const results = await Promise.all(
-        supporters.map((s) => s.try(type))
-      ).catch((error) => {
+    const type: SupportEvent = request.type;
+    const results = await Promise.all(supporters.map((s) => s.try(type))).catch(
+      (error) => {
         console.error(error);
         return [];
-      });
+      }
+    );
 
-      if (results.includes(true)) return true;
+    if (results.includes(true)) return true;
 
-      clearDisplay();
+    clearDisplay();
 
-      return false;
-    }
-  );
+    return false;
+  });
 
   // 既に監視済みなら監視を開始する
   getStorageValue("isListening", false).then((result) => {

@@ -1,9 +1,9 @@
 import * as React from "react";
 
-import { Switch } from "../Switch";
-import { KCLPApp, GlobalStyles, KCLPBackground } from "./items";
-
 import { SupportEvent } from "../../types";
+import { Switch } from "../Switch";
+
+import { KCLPApp, GlobalStyles, KCLPBackground } from "./items";
 
 interface AppProps {
   type: SupportEvent;

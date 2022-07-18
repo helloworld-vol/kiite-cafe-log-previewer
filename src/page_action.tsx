@@ -3,9 +3,8 @@ import { render } from "react-dom";
 import { createGlobalStyle } from "styled-components";
 import { browser } from "webextension-polyfill-ts";
 
-import { Popup } from "./components/Popup";
 import { ErrorBoundary } from "./components/ErrorBoundary";
-
+import { Popup } from "./components/Popup";
 import { SupportEvent } from "./types";
 
 /**

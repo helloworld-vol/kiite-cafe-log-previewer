@@ -1,6 +1,3 @@
-import * as React from "react";
-import { useState, useEffect } from "react";
-
 import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import {
   faDownload,
@@ -8,18 +5,19 @@ import {
   faHeadphonesAlt,
   faBroadcastTower,
 } from "@fortawesome/free-solid-svg-icons";
+import * as React from "react";
+import { useState, useEffect } from "react";
 
+import { SupportEvent } from "../../types";
+import { getStorageValue } from "../../utils/storage";
 import { IconButton } from "../IconButton";
+
 import {
   PopupContainer,
   IconContainer,
   ContainerItem,
   PopupTitle,
 } from "./items";
-
-import { getStorageValue } from "../../utils/storage";
-
-import { SupportEvent } from "../../types";
 
 interface PopupProps {
   onClick: (type: SupportEvent, callback: (sucsess: boolean) => void) => void;

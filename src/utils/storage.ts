@@ -1,4 +1,5 @@
 import { browser, Storage } from "webextension-polyfill-ts";
+
 import { KCLPStorageType } from "../types";
 
 type StorageKeys = keyof KCLPStorageType;

@@ -1,17 +1,15 @@
 {
   "compilerOptions": {
-    "target": "es5",
+    "target": "es6",
     "module": "CommonJS",
     "outDir": "./dist/",
+    "noEmit": true,
+    "strict": true,
     "sourceMap": true,
     "jsx": "react",
-    "lib": [
-      "ESNext",
-      "DOM"
-    ]
+    "lib": ["ESNext", "DOM"],
+    "skipLibCheck": true
   },
-  "include": [
-    "./src/**/*.tsx",
-    "./src/**/*.ts"
-  ]
+  "include": ["./src/**/*.tsx", "./src/**/*.ts"],
+  "exclude": ["node_modules"]
 }

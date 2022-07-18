@@ -1,15 +1,19 @@
 // eslint-disable-next-line no-undef
 module.exports = {
   env: {
-    browser: true,
     es6: true,
+    node: true,
+    browser: true,
   },
 
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended",
-    "prettier/@typescript-eslint",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:import/recommended",
+    "plugin:import/typescript",
+    "prettier",
   ],
 
   settings: {
@@ -38,6 +42,14 @@ module.exports = {
 
   plugins: ["react", "@typescript-eslint"],
 
+  rules: {
+    "react/prop-types": "off",
+    "react/react-in-jsx-scope": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-unused-vars": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
+  },
+
   overrides: [
     {
       files: ["*.ts", "*.tsx"],
@@ -45,11 +57,32 @@ module.exports = {
         "@typescript-eslint/no-unused-vars": [2, { args: "none" }],
       },
     },
+    {
+      files: ["src/**/*.{js,jsx,ts,tsx}"],
+      rules: {
+        "import/order": [
+          "error",
+          {
+            groups: [
+              "type",
+              "builtin",
+              "external",
+              "internal",
+              "parent",
+              "sibling",
+              "index",
+              "object",
+              "unknown",
+            ],
+            pathGroups: [],
+            alphabetize: {
+              order: "asc",
+            },
+            "newlines-between": "always",
+            warnOnUnassignedImports: true,
+          },
+        ],
+      },
+    },
   ],
-
-  rules: {
-    "prettier/prettier": "error",
-    "react/prop-types": "off",
-    "import/prefer-default-export": "off",
-  },
 };
