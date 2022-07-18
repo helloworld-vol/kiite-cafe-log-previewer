@@ -74,12 +74,20 @@ module.exports = {
               "object",
               "unknown",
             ],
-            pathGroups: [],
             alphabetize: {
               order: "asc",
             },
             "newlines-between": "always",
             warnOnUnassignedImports: true,
+            pathGroups: [
+              {
+                pattern: "*.scss",
+                group: "object",
+                position: "after",
+                patternOptions: { matchBase: true },
+              },
+            ],
+            pathGroupsExcludedImportTypes: [],
           },
         ],
       },
