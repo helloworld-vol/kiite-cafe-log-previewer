@@ -1,6 +1,6 @@
 import { browser } from "webextension-polyfill-ts";
 
-import { getStorageValue } from "../../utils/storage";
+import { getStorageValue } from "./utils/storage";
 
 const manifest = browser.runtime.getManifest(); // manifest.jsonの内容を取得
 const version = manifest.version; // バージョン番号 example: "1.0.0"

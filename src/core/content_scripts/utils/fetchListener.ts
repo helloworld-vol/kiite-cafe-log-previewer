@@ -1,9 +1,9 @@
 import { browser } from "webextension-polyfill-ts";
 
-import { SupportEvent, EventSupporter } from "../../types/apis";
-import { setStorageValue } from "../../utils/storage";
+import { SupportEvent, EventSupporter } from "../../../types/apis";
 
 import { InjectScriptClass } from "./injectScript";
+import { setStorageValue } from "./storage";
 
 /**
  * 通信を監視するためのクラス

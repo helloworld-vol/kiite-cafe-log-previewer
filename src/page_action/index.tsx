@@ -2,10 +2,9 @@ import * as React from "react";
 import { createRoot } from "react-dom/client";
 import { browser } from "webextension-polyfill-ts";
 
-import { SupportEvent } from "../../types/apis";
-import { ErrorBoundary } from "../content_scripts/components/ErrorBoundary";
-
-import { Popup } from "./components/Popup";
+import { ErrorBoundary } from "../core/content_scripts/components/ErrorBoundary";
+import { Popup } from "../core/page_action/components/Popup";
+import { SupportEvent } from "../types";
 
 import "./styles/index.scss";
 

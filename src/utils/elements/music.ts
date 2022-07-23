@@ -1,10 +1,10 @@
-import { ListeningFetchOption } from "../../types/apis";
-import { MusicHistory } from "../../types/musicHistory";
 import {
   getStorageValue,
   setStorageValue,
   watchStorageValue,
-} from "../storage";
+} from "../../core/content_scripts/utils/storage";
+import { ListeningFetchOption } from "../../types/apis";
+import { MusicHistory } from "../../types/musicHistory";
 import { getNow, createCSVFile } from "../util";
 
 /**

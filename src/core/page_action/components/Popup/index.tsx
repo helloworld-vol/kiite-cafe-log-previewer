@@ -8,9 +8,9 @@ import {
 import * as React from "react";
 import { useState, useEffect } from "react";
 
-import { SupportEvent } from "../../types";
-import { getStorageValue } from "../../utils/storage";
-import { IconButton } from "../IconButton";
+import { SupportEvent } from "../../../../types/apis";
+import { IconButton } from "../../../content_scripts/components/IconButton";
+import { getStorageValue } from "../../../content_scripts/utils/storage";
 
 import {
   PopupContainer,
