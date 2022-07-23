@@ -14,9 +14,9 @@ module.exports = {
   devtool: isDev ? "inline-source-map" : false,
 
   entry: {
-    page_action: "./src/page_action.tsx",
-    background: "./src/background.ts",
-    contents: "./src/contents.ts",
+    background: "./src/core/background/index.ts",
+    page_action: "./src/core/page_action/index.tsx",
+    contents: "./src/core/content_scripts/index.ts",
   },
 
   output: {

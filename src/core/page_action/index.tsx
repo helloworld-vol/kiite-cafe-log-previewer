@@ -2,11 +2,11 @@ import * as React from "react";
 import { createRoot } from "react-dom/client";
 import { browser } from "webextension-polyfill-ts";
 
-import { ErrorBoundary } from "./components/ErrorBoundary";
-import { Popup } from "./components/Popup";
-import { SupportEvent } from "./types";
+import { ErrorBoundary } from "../../components/ErrorBoundary";
+import { Popup } from "../../components/Popup";
+import { SupportEvent } from "../../types/apis";
 
-import "./styles/index.scss";
+import "../../styles/index.scss";
 
 /**
  * Iconボタンを押したときの処理

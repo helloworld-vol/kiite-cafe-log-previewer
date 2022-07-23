@@ -1,4 +1,5 @@
-import { ListeningFetchOption, Music } from "../../types";
+import { ListeningFetchOption } from "../../types/apis";
+import { MusicHistory } from "../../types/musicHistory";
 import {
   getStorageValue,
   setStorageValue,
@@ -9,7 +10,7 @@ import { getNow, createCSVFile } from "../util";
 /**
  * Musicデータに含まれるべき情報のkey一覧
  */
-export const requiredMusicKeys: Array<keyof Music> = [
+export const requiredMusicKeys: Array<keyof MusicHistory> = [
   "played_at",
   "played_label",
   "creator_name",
@@ -24,7 +25,7 @@ export const requiredMusicKeys: Array<keyof Music> = [
 /**
  * Musicデータか判定する
  */
-export const isMusic = (value: any): value is Music => {
+export const isMusic = (value: any): value is MusicHistory => {
   if (!value) return false;
 
   const keys = Object.keys(value).filter(
@@ -37,7 +38,7 @@ export const isMusic = (value: any): value is Music => {
 /**
  * 再生された曲一覧データを返す
  */
-export const getMusics = async (): Promise<Music[]> => {
+export const getMusics = async (): Promise<MusicHistory[]> => {
   const data = await getStorageValue("musics", []);
 
   return data.musics;
@@ -46,7 +47,7 @@ export const getMusics = async (): Promise<Music[]> => {
 /**
  * 再生された曲一覧データを保存する
  */
-export const setMusics = async (musics: Music[]) => {
+export const setMusics = async (musics: MusicHistory[]) => {
   return setStorageValue("musics", musics);
 };
 
@@ -54,7 +55,7 @@ export const setMusics = async (musics: Music[]) => {
  * LocalStorageに保存されている再生された曲一覧データを監視する
  */
 export const watchMusicData = (
-  onChanged: (musics: Music[]) => void
+  onChanged: (musics: MusicHistory[]) => void
 ): (() => void) => {
   return watchStorageValue("musics", (newMusics) => {
     if (newMusics.length > 0) {
@@ -66,7 +67,7 @@ export const watchMusicData = (
 /**
  * 渡されたデータの重複を消して、再生された順に並び替える
  */
-export const filterMusicList = (musics: Music[]): Music[] => {
+export const filterMusicList = (musics: MusicHistory[]): MusicHistory[] => {
   const list = musics
     .reduce((pre, item) => {
       const index = pre.findIndex((v) => v.video_id === item.video_id);
@@ -78,7 +79,7 @@ export const filterMusicList = (musics: Music[]): Music[] => {
       }
 
       return pre;
-    }, [] as Music[])
+    }, [] as MusicHistory[])
     .sort((a, b) => (a.played_at > b.played_at ? -1 : 1));
 
   return list;
@@ -111,11 +112,11 @@ export const createMusicCVSFile = async () => {
  * fetchしてきたデータを受け取って、Storeに反映する
  */
 export const updateMusic = async (dataList: any[]) => {
-  const newMusics = dataList.flatMap<Music>((data) => {
+  const newMusics = dataList.flatMap<MusicHistory>((data) => {
     if (!data) return [];
 
     const now = getNow();
-    let music: Music = Array.isArray(data.songs) ? data.songs[0] : {};
+    let music: MusicHistory = Array.isArray(data.songs) ? data.songs[0] : {};
 
     music = { ...music, played_at: now.unix, played_label: now.format };
 

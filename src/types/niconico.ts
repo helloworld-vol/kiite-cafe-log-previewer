@@ -1,73 +1,6 @@
 /**
  * =============================
- *    Elements
- * =============================
- */
-
-/**
- * 再生された曲のデータ型
- */
-export interface Music {
-  played_label: string;
-  played_at: number;
-  creator_id: number;
-  creator_link: string;
-  creator_name: string;
-  creator_unique: string;
-  fav_count: number;
-  is_faved: boolean;
-  song_id: number;
-  song_link: string;
-  song_title: string;
-  song_unique: string;
-  thumbnail: string;
-  video_id: string;
-}
-
-/**
- * =============================
- *    My API
- * =============================
- */
-
-/**
- * Storageに保存するデータ型
- */
-export interface KCLPStorageType {
-  musics: Music[];
-  isListening: boolean;
-}
-
-/**
- * IconButtonに対応する文字列
- */
-export type SupportEvent =
-  | "show-musics"
-  | "clear-log"
-  | "start-listening"
-  | "stop-listening"
-  | "send-report"
-  | "create-csv";
-
-/**
- * 対応するイベントの処理をするinterface
- */
-export interface EventSupporter {
-  try(event: SupportEvent): Promise<boolean>;
-}
-
-/**
- * Fetchを監視するときに必要な情報
- */
-export interface ListeningFetchOption {
-  id: string;
-  url: string;
-  update: (dataList: any[]) => Promise<void>;
-}
-
-/**
- * =============================
- *    NicoNicoのAPIの型
+ *    ニコニコ動画のAPIの型
  * =============================
  */
 
@@ -92,7 +25,7 @@ type NicoSeekStatus = "none" | "seeking" | "seekEnd";
 export type NicoPlayerFactory = {
   create: (
     targetDom: Element,
-    video_id: string, // "sm31477166"
+    video_id: string,
     options: NicoPlayOptions
   ) => Promise<NicoPlayer>;
 };

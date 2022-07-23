@@ -10,18 +10,18 @@ export class InjectScriptClass {
   /**
    *  渡されたコードを実行するScriptタグを注入する
    */
-  inject(code: string, onComplete?: () => void) {
+  inject(filePath: string, onComplete?: () => void) {
     if (this.injectedScript) return;
 
     if (!document.head || !document.body) {
-      return requestIdleCallback(() => this.inject(code, onComplete));
+      return requestIdleCallback(() => this.inject(filePath, onComplete));
     }
 
     const script = document.createElement("script");
 
     script.classList.add("__KCLP_SCRIPT__");
-    script.type = "text/javascript";
-    script.innerHTML = code;
+    script.setAttribute("type", "text/javascript");
+    script.setAttribute("src", filePath);
 
     this.injectedScript = script;
     document.head.appendChild(script);
@@ -43,6 +43,6 @@ export class InjectScriptClass {
 
     this.injectedScript = void 0;
 
-    onComplete();
+    onComplete?.();
   }
 }

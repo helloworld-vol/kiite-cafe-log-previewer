@@ -1,5 +1,7 @@
-import { SupportEvent, EventSupporter } from "../../types";
-import { setStorageValue } from "../storage";
+import { browser } from "webextension-polyfill-ts";
+
+import { SupportEvent, EventSupporter } from "../../types/apis";
+import { setStorageValue } from "../../utils/storage";
 
 import { InjectScriptClass } from "./injectScript";
 
@@ -9,7 +11,6 @@ import { InjectScriptClass } from "./injectScript";
 export class FetchListenerClass implements EventSupporter {
   private injectScript = new InjectScriptClass();
   private id: string;
-  private listenUrl: string;
   private onResponse: (dataList: any[]) => void;
   private observer = new MutationObserver(this.onChange.bind(this));
 
@@ -19,7 +20,6 @@ export class FetchListenerClass implements EventSupporter {
     onResponse: (dataList: any[]) => void
   ) {
     this.id = id;
-    this.listenUrl = listenUrl;
     this.onResponse = onResponse;
   }
 
@@ -34,7 +34,7 @@ export class FetchListenerClass implements EventSupporter {
 
       if (target && target.id === this.id) {
         this.onResponse(
-          target.textContent
+          (target.textContent || "")
             .split("|")
             .filter((v) => !!v)
             .map((v) => JSON.parse(v))
@@ -50,32 +50,7 @@ export class FetchListenerClass implements EventSupporter {
    */
   private interceptData() {
     this.injectScript.inject(
-      `
-      (function() {
-        var XHR = XMLHttpRequest.prototype;
-        var send = XHR.send;
-    
-        XHR.send = function() {
-          var onLoad = function() {
-            console.log('::: KCLP ::: listening ...');
-            
-            if (this.responseURL.includes('${this.listenUrl}')) {
-              var dom = document.getElementById('${this.id}');
-      
-              if (dom) {
-                dom.innerText += this.response + '|';
-              } else {
-                XHR.send = send;
-              }
-            }
-          }
-    
-          this.addEventListener('load', onLoad);
-    
-          return send.apply(this, arguments);
-        };
-      })();
-    `,
+      browser.runtime.getURL("inectScriptSrc.js"),
       () => {
         const dom = document.createElement("div");
 
