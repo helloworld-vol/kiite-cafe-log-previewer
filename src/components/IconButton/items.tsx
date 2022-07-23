@@ -6,7 +6,7 @@ export const IconButtonContainer = styled.div`
   align-items: center;
 `;
 
-export const RawButton = styled.button<{ background: string }>`
+export const RawButton = styled.button<{ background?: string }>`
   width: 48px;
   height: 48px;
   border-radius: 100%;

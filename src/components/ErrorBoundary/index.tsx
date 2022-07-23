@@ -30,7 +30,7 @@ export class ErrorBoundary extends React.Component<{
   }
 
   componentDidCatch(error: Error) {
-    console.log("エラーが発生しました", error);
+    console.error(error);
   }
 
   render() {

@@ -1,4 +1,4 @@
-import { SizeProp, IconProp } from "@fortawesome/fontawesome-svg-core";
+import { SizeProp, IconDefinition } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import * as React from "react";
 
@@ -11,8 +11,7 @@ import {
 import { useIconButton } from "./use";
 
 interface IconButtonProps {
-  icon: IconProp;
-
+  icon: IconDefinition;
   color?: string;
   onClick?: React.DOMAttributes<HTMLButtonElement>["onClick"];
   className?: string;
@@ -41,7 +40,10 @@ export const IconButton: React.FC<IconButtonProps> = ({
         onClick={onClick}
         onMouseDown={onMouseDown}
       >
-        <RippleEffect className="ripple-effect" position={ripplePosition} />
+        <RippleEffect
+          className="ripple-effect"
+          position={ripplePosition || void 0}
+        />
 
         <FontAwesomeIcon icon={icon} size={size} />
       </RawButton>

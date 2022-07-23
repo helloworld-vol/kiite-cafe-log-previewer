@@ -32,7 +32,7 @@
     {
       "matches": ["*://cafe.kiite.jp/*"],
       "js": ["contents.js"],
-      "run_at": "document_start"
+      "run_at": "document_idle"
     }
   ]
 }

@@ -15,8 +15,8 @@ export const useIconButton = () => {
 
     const elements = e.currentTarget.getElementsByClassName("ripple-effect");
     const effect = elements.item(0);
-    const width = effect.clientWidth;
-    const height = effect.clientHeight;
+    const width = effect?.clientWidth || 0;
+    const height = effect?.clientHeight || 0;
 
     setPosition({
       left: x - width / 2,
