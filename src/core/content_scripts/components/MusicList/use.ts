@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
+import { getMusics, watchMusicData } from "../../../../schema/music";
 import { MusicHistory } from "../../../../schema/musicHistory";
-import { getMusics, watchMusicData } from "../../../../utils/elements/music";
 
 /**
  * Kiite Cafeで再生された曲一覧を表示するための情報などを提供するHooks

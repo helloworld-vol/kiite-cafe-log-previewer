@@ -2,10 +2,10 @@ import {
   getStorageValue,
   setStorageValue,
   watchStorageValue,
-} from "../../core/content_scripts/utils/storage";
-import { ListeningFetchOption } from "../../schema/apis";
-import { MusicHistory } from "../../schema/musicHistory";
-import { getNow, createCSVFile } from "../util";
+} from "../core/content_scripts/utils/storage";
+import { ListeningFetchOption } from "../schema/apis";
+import { MusicHistory } from "../schema/musicHistory";
+import { getNow, createCSVFile } from "../utils";
 
 /**
  * Musicデータに含まれるべき情報のkey一覧
