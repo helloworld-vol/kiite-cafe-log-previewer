@@ -8,7 +8,7 @@ import {
 import * as React from "react";
 import { useState, useEffect } from "react";
 
-import { SupportEvent } from "../../../../types/apis";
+import { SupportEvent } from "../../../../schema/apis";
 import { IconButton } from "../../../content_scripts/components/IconButton";
 import { getStorageValue } from "../../../content_scripts/utils/storage";
 

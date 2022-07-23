@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 
-import { MusicHistory } from "../../../../types/musicHistory";
+import { MusicHistory } from "../../../../schema/musicHistory";
 import { getMusics, watchMusicData } from "../../../../utils/elements/music";
 
 /**

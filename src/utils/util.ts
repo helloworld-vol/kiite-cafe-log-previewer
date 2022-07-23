@@ -4,7 +4,7 @@
  * =======================================
  */
 
-import { EventSupporter, SupportEvent } from "../types";
+import { EventSupporter, SupportEvent } from "../schema/apis";
 
 /**
  * CSVのデータ型

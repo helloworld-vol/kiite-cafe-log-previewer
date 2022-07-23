@@ -3,8 +3,8 @@ import {
   setStorageValue,
   watchStorageValue,
 } from "../../core/content_scripts/utils/storage";
-import { ListeningFetchOption } from "../../types/apis";
-import { MusicHistory } from "../../types/musicHistory";
+import { ListeningFetchOption } from "../../schema/apis";
+import { MusicHistory } from "../../schema/musicHistory";
 import { getNow, createCSVFile } from "../util";
 
 /**

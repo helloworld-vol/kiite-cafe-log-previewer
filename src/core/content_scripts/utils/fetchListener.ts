@@ -1,6 +1,6 @@
 import { browser } from "webextension-polyfill-ts";
 
-import { SupportEvent, EventSupporter } from "../../../types/apis";
+import { SupportEvent, EventSupporter } from "../../../schema/apis";
 
 import { InjectScriptClass } from "./injectScript";
 import { setStorageValue } from "./storage";
