@@ -34,8 +34,6 @@ const onClick = async (
   }
 };
 
-console.log("hoge v1");
-
 const container = document.getElementById("root") as HTMLElement;
 const root = createRoot(container);
 
