@@ -1,7 +1,9 @@
 const path = require("path");
+const { ProvidePlugin } = require("webpack");
 const CopyPlugin = require("copy-webpack-plugin");
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
+const TsconfigPathsPlugin = require("tsconfig-paths-webpack-plugin");
 
 const isDev = process.env.NODE_ENV === "development";
 
@@ -16,7 +18,7 @@ module.exports = {
   entry: {
     background: "./src/background/index.ts",
     page_action: "./src/page_action/index.tsx",
-    contents: "./src/content_scripts/index.ts",
+    contents: "./src/content_scripts/index.tsx",
   },
 
   output: {
@@ -25,6 +27,7 @@ module.exports = {
 
   resolve: {
     extensions: [".js", ".ts", ".tsx"],
+    plugins: [new TsconfigPathsPlugin()],
   },
 
   module: {
@@ -88,5 +91,9 @@ module.exports = {
         { from: "./public/manifest.json", to: "manifest.json" },
       ],
     }),
+
+    // esbuild が auto import jsx に対応して無いので、
+    // ProvidePluginを使って import 文を挿入する
+    new ProvidePlugin({ React: "react" }),
   ],
 };

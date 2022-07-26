@@ -1,11 +1,7 @@
-import {
-  getStorageValue,
-  setStorageValue,
-  watchStorageValue,
-} from "../core/content_scripts/utils/storage";
+import { getNow, createCSVFile } from "utils";
+
 import { ListeningFetchOption } from "../schema/apis";
 import { MusicHistory } from "../schema/musicHistory";
-import { getNow, createCSVFile } from "../utils";
 
 /**
  * Musicデータに含まれるべき情報のkey一覧
@@ -39,16 +35,18 @@ export const isMusic = (value: any): value is MusicHistory => {
  * 再生された曲一覧データを返す
  */
 export const getMusics = async (): Promise<MusicHistory[]> => {
-  const data = await getStorageValue("musics", []);
+  // const data = await getStorageValue("musics", []);
+  // return data.musics;
 
-  return data.musics;
+  return [];
 };
 
 /**
  * 再生された曲一覧データを保存する
  */
 export const setMusics = async (musics: MusicHistory[]) => {
-  return setStorageValue("musics", musics);
+  // return setStorageValue("musics", musics);
+  return [];
 };
 
 /**
@@ -57,11 +55,12 @@ export const setMusics = async (musics: MusicHistory[]) => {
 export const watchMusicData = (
   onChanged: (musics: MusicHistory[]) => void
 ): (() => void) => {
-  return watchStorageValue("musics", (newMusics) => {
-    if (newMusics.length > 0) {
-      onChanged(newMusics);
-    }
-  });
+  return () => void 0;
+  // return watchStorageValue("musics", (newMusics) => {
+  //   if (newMusics.length > 0) {
+  //     onChanged(newMusics);
+  //   }
+  // });
 };
 
 /**

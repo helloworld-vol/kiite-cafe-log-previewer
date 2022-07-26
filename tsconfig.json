@@ -6,9 +6,11 @@
     "noEmit": true,
     "strict": true,
     "sourceMap": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "rootDir": "./src",
+    "baseUrl": "./src"
   },
   "include": ["index.d.ts", "./src/**/*.tsx", "./src/**/*.ts"],
   "exclude": ["node_modules"]

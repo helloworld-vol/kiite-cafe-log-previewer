@@ -1,13 +1,14 @@
-.container {
+.popup {
   top: 0;
   right: 0;
   position: fixed;
   z-index: 9999999;
+  transform: translateX(100%);
 }
 
 .background {
   width: 350px;
   height: 100vh;
   position: relative;
-  background: rgba(0, 0, 255, 0.75);
+  background: rgba(0, 0, 0, 0.75);
 }
