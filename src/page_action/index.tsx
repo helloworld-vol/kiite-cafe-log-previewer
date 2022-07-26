@@ -2,8 +2,8 @@ import * as React from "react";
 import { createRoot } from "react-dom/client";
 import { browser } from "webextension-polyfill-ts";
 
-import { SupportEvent } from "../../schema/apis";
 import { ErrorBoundary } from "../content_scripts/components/ErrorBoundary";
+import { SupportEvent } from "../schema/apis";
 
 import { Popup } from "./components/Popup";
 

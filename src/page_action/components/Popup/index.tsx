@@ -8,16 +8,11 @@ import {
 import * as React from "react";
 import { useState, useEffect } from "react";
 
-import { SupportEvent } from "../../../../schema/apis";
 import { IconButton } from "../../../content_scripts/components/IconButton";
 import { getStorageValue } from "../../../content_scripts/utils/storage";
+import { SupportEvent } from "../../../schema/apis";
 
-import {
-  PopupContainer,
-  IconContainer,
-  ContainerItem,
-  PopupTitle,
-} from "./items";
+import styles from "./Popup.module.scss";
 
 interface PopupProps {
   onClick: (type: SupportEvent, callback: (sucsess: boolean) => void) => void;
@@ -37,27 +32,27 @@ export const Popup: React.FC<PopupProps> = ({ onClick }) => {
   }, []);
 
   return (
-    <PopupContainer>
-      <PopupTitle>機能一覧</PopupTitle>
+    <div className={styles.popupContainer}>
+      <h1 className={styles.popupTitle}>機能一覧</h1>
 
-      <IconContainer>
-        <ContainerItem>
+      <div className={styles.iconContainer}>
+        <div className={styles.containerItem}>
           <IconButton
             icon={faHeadphonesAlt}
             label="再生された曲を見る"
             onClick={() => onClick("show-musics", closePopup)}
           />
-        </ContainerItem>
+        </div>
 
-        <ContainerItem>
+        <div className={styles.containerItem}>
           <IconButton
             icon={faTrashAlt}
             label="ログを削除"
             onClick={() => onClick("clear-log", closePopup)}
           />
-        </ContainerItem>
+        </div>
 
-        <ContainerItem>
+        <div className={styles.containerItem}>
           {isListening ? (
             <IconButton
               icon={faBroadcastTower}
@@ -76,24 +71,24 @@ export const Popup: React.FC<PopupProps> = ({ onClick }) => {
               }
             />
           )}
-        </ContainerItem>
+        </div>
 
-        <ContainerItem>
+        <div className={styles.containerItem}>
           <IconButton
             icon={faDownload}
             label="ログをCSVでダウンロード"
             onClick={() => onClick("create-csv", closePopup)}
           />
-        </ContainerItem>
+        </div>
 
-        <ContainerItem>
+        <div className={styles.containerItem}>
           <IconButton
             icon={faTwitter}
             label="バグや要望を報告"
             onClick={() => onClick("send-report", closePopup)}
           />
-        </ContainerItem>
-      </IconContainer>
-    </PopupContainer>
+        </div>
+      </div>
+    </div>
   );
 };
